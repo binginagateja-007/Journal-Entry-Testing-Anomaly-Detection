@@ -11,13 +11,16 @@ What Was Identified
 Reviewing how audit teams currently approach journal entry testing surfaced three recurring gaps:
 
 Coverage gap — sampling by design leaves most of the population untested.
+
 Detection gap — manual review only catches the red flags a reviewer thinks to check for; anything outside known patterns goes unnoticed.
+
 Prioritization gap — even within a sample, every entry gets roughly equal attention, rather than review time being directed at the entries most likely to be problematic.
 How It Was Solved
 
 A screening approach was built to test the entire transaction population, not a sample, using two layers of detection working together:
 
 Known-pattern testing — the standard checks audit teams already rely on: duplicate payments, purchase order/invoice/payment mismatches, weekend or after-hours postings, suspiciously round amounts, and preparer/approver segregation-of-duties violations.
+
 Pattern-anomaly testing — a statistical model that flags transactions behaving unusually relative to their vendor's typical amount, timing, and frequency, catching irregularities that don't match any predefined rule.
 
 Each transaction is then assigned a composite risk score and placed into one of four tiers — Critical, High, Medium, Low — so review effort is directed by risk rather than spread evenly or left to sampling chance. Transactions flagged by both layers land in the Critical tier, since agreement between a known-pattern test and an independent anomaly signal is the strongest indicator of a genuine issue.
@@ -33,8 +36,13 @@ Anomalies identified	98%
 False positives on clean transactions	3%
 Categories with full detection	Duplicate payments, weekend postings, odd-hour postings, round-number amounts, PO/invoice/payment mismatches, segregation-of-duties violations
 Hardest category	Unusual-amount outliers (85% detection — a matter of degree rather than a fixed rule)
+
 Recommendations
+
 Route Critical and High-tier transactions to manual review first, rather than testing a random sample — this concentrates the highest-cost activity (auditor time) on the highest-likelihood issues.
+
 Treat vendor-level risk ranking as an input to engagement planning — vendors that consistently surface in the Vendor Drill-down view warrant closer scrutiny in future testing cycles, not just the current one.
+
 Use agreement between the two detection layers as a confidence signal — when a known-pattern rule and the anomaly model both flag the same transaction, that agreement itself is meaningful and should weight review priority more than either signal alone.
+
 Revisit the anomaly threshold periodically — the model assumes roughly 4% of a population is anomalous; this should be recalibrated against actual findings over a few testing cycles rather than treated as fixed.
