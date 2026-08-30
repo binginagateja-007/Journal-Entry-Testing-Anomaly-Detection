@@ -1,0 +1,8 @@
+department,total_transactions,total_amount,critical_count,high_count
+Finance,722,13279844.07,1,50
+HR,710,11903385.74,0,55
+IT,706,12415075.83,0,50
+Marketing,758,13132288.45,0,46
+Operations,746,14266522.96,0,70
+Procurement,692,12143286.93,1,58
+Sales,713,12382277.26,0,56
